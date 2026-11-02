@@ -61,8 +61,8 @@ async function onSubmit(e: Event) {
 
 <template>
   <div class="form-card" id="form-card" :hidden="sent">
-    <h3 class="t-h3">Projekt anfragen</h3>
-    <p class="t-small t-muted">Felder mit * sind Pflicht.</p>
+    <h3 class="t-h3">Her mit Ihrem Projekt</h3>
+    <p class="t-small t-muted">Felder mit * brauchen wir, der Rest ist Kür.</p>
     <form id="contact-form" class="form" :action="action" method="post" novalidate @submit.prevent="onSubmit">
       <div class="form__row">
         <div class="field">
@@ -71,7 +71,7 @@ async function onSubmit(e: Event) {
             id="f-name" v-model="values.name" name="name" type="text" autocomplete="name" required
             :disabled="busy" :aria-invalid="invalid.name" aria-describedby="f-name-err" @blur="touch('name')"
           >
-          <p id="f-name-err" class="field__error" :hidden="!invalid.name"><AppIcon name="alert" /><span>Bitte geben Sie Ihren Namen an.</span></p>
+          <p id="f-name-err" class="field__error" :hidden="!invalid.name"><AppIcon name="alert" /><span>Wie dürfen wir Sie ansprechen? Bitte geben Sie Ihren Namen an.</span></p>
         </div>
         <div class="field">
           <label for="f-phone">Telefon</label>
@@ -79,7 +79,7 @@ async function onSubmit(e: Event) {
             id="f-phone" v-model="values.phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"
             :disabled="busy" aria-describedby="f-phone-help"
           >
-          <p id="f-phone-help" class="field__help">Für schnelle Rückfragen</p>
+          <p id="f-phone-help" class="field__help">Freiwillig, aber so klären wir Rückfragen am schnellsten</p>
         </div>
       </div>
       <div class="field">
@@ -88,7 +88,7 @@ async function onSubmit(e: Event) {
           id="f-email" v-model="values.email" name="email" type="email" autocomplete="email" required
           :disabled="busy" :aria-invalid="invalid.email" aria-describedby="f-email-err" @blur="touch('email')"
         >
-        <p id="f-email-err" class="field__error" :hidden="!invalid.email"><AppIcon name="alert" /><span>Bitte geben Sie eine gültige E-Mail-Adresse an, z. B. name@beispiel.de.</span></p>
+        <p id="f-email-err" class="field__error" :hidden="!invalid.email"><AppIcon name="alert" /><span>Da fehlt noch was: Bitte geben Sie eine gültige E-Mail-Adresse an, z. B. name@beispiel.de.</span></p>
       </div>
       <div class="field">
         <label for="f-topic">Was haben Sie vor? *</label>
@@ -99,7 +99,7 @@ async function onSubmit(e: Event) {
           <option value="">Bitte wählen</option>
           <option v-for="topic in topics" :key="topic">{{ topic }}</option>
         </select>
-        <p id="f-topic-err" class="field__error" :hidden="!invalid.topic"><AppIcon name="alert" /><span>Bitte wählen Sie aus, worum es geht.</span></p>
+        <p id="f-topic-err" class="field__error" :hidden="!invalid.topic"><AppIcon name="alert" /><span>Worum geht’s? Bitte wählen Sie ein Thema aus.</span></p>
       </div>
       <div class="field">
         <label for="f-msg">Nachricht *</label>
@@ -107,7 +107,7 @@ async function onSubmit(e: Event) {
           id="f-msg" v-model="values.message" name="message" rows="5" required placeholder="z. B. 3 Zimmer, ca. 80 m², ab Mitte März"
           :disabled="busy" :aria-invalid="invalid.message" aria-describedby="f-msg-err" @blur="touch('message')"
         />
-        <p id="f-msg-err" class="field__error" :hidden="!invalid.message"><AppIcon name="alert" /><span>Bitte beschreiben Sie kurz Ihr Vorhaben.</span></p>
+        <p id="f-msg-err" class="field__error" :hidden="!invalid.message"><AppIcon name="alert" /><span>Ein, zwei Sätze genügen: Bitte beschreiben Sie kurz Ihr Vorhaben.</span></p>
       </div>
       <div class="field">
         <div class="check">
@@ -124,19 +124,19 @@ async function onSubmit(e: Event) {
         <input id="f-website" v-model="values.website" name="website" type="text" tabindex="-1" autocomplete="off">
       </div>
 
-      <p id="form-summary" class="alert alert--error" role="alert" :hidden="!showSummary"><AppIcon name="alert" /><span>Bitte prüfen Sie die markierten Felder.</span></p>
-      <p id="form-error" class="alert alert--error" role="alert" :hidden="!showError"><AppIcon name="alert" /><span>Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an: <span class="ph">[TELEFON]</span>.</span></p>
+      <p id="form-summary" class="alert alert--error" role="alert" :hidden="!showSummary"><AppIcon name="alert" /><span>Fast geschafft! Bitte prüfen Sie noch die markierten Felder.</span></p>
+      <p id="form-error" class="alert alert--error" role="alert" :hidden="!showError"><AppIcon name="alert" /><span>Hoppla, da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder rufen Sie uns direkt an: <span class="ph">[TELEFON]</span>.</span></p>
 
       <UiButton id="form-submit" type="submit" size="lg" block :disabled="busy" :aria-busy="busy">
         <span v-if="busy" class="spinner" />
         <AppIcon v-else name="send" />
-        <span>Anfrage senden</span>
+        <span>Anfrage abschicken</span>
       </UiButton>
     </form>
   </div>
   <div id="form-success" class="form-success" aria-live="polite" :hidden="!sent">
     <AppIcon name="check-circle" />
     <h3 id="form-success-title" ref="successHeading" class="t-h3" tabindex="-1">{{ successTitle }}</h3>
-    <p>Ihre Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb von <span class="ph">[24 Stunden]</span>. Eilig? Rufen Sie uns an: <a class="link" :href="links.tel"><span class="ph">[TELEFON]</span></a></p>
+    <p>Angekommen! Ihre Anfrage liegt jetzt bei uns auf dem Tisch. Wir melden uns in der Regel innerhalb von <span class="ph">[24 Stunden]</span>. Zu lange? Dann rufen Sie einfach an: <a class="link" :href="links.tel"><span class="ph">[TELEFON]</span></a></p>
   </div>
 </template>

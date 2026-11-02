@@ -139,7 +139,7 @@ onBeforeUnmount(() => {
         </li>
       </ul>
       <div class="mobile-nav__cta">
-        <UiButton :href="links.tel" size="lg" block icon="phone">Jetzt anrufen</UiButton>
+        <UiButton :href="links.tel" size="lg" block icon="phone">Jetzt durchklingeln</UiButton>
         <span class="t-small t-muted"><span class="ph">[TELEFON]</span></span>
       </div>
     </nav>

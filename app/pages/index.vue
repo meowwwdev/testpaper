@@ -4,9 +4,9 @@ import type { GalleryItem } from '~/components/ProjectGallery.vue'
 definePageMeta({ actionBar: true })
 
 useHead({
-  title: 'Maler Vogel – Malerbetrieb in [ORT] | Innenanstrich, Fassade, Tapezieren',
+  title: 'Maler Vogel – Ihr Malerbetrieb in [ORT] | Innenanstrich, Fassade, Tapezieren',
   meta: [
-    { name: 'description', content: 'Ihr Malerbetrieb in [ORT] und Umgebung: Innenanstrich, Fassade, Tapezieren und Lackierarbeiten. Persönlich, sauber, pünktlich. Jetzt anrufen: [TELEFON].' },
+    { name: 'description', content: 'Ihr Malerbetrieb in [ORT] und Umgebung: Innenanstrich, Fassade, Tapezieren und Lackierarbeiten. Wir streichen, Sie lehnen sich zurück. Sauber, pünktlich, vom Meister. Anrufen: [TELEFON].' },
   ],
   // Strukturierte Daten: Platzhalter vor Livegang mit echten NAP-Daten ersetzen (identisch zum Footer)
   script: [{
@@ -33,12 +33,12 @@ useHead({
 })
 
 const services = [
-  { icon: 'paint-roller', title: 'Innenanstrich', text: 'Wände und Decken in Wunschfarbe, mit sorgfältigem Abkleben und Möbelschutz. Auch kurzfristig und bewohnt.' },
-  { icon: 'house', title: 'Fassadenanstrich', text: 'Schutz und neuer Glanz für Ihr Haus: Reinigung, Ausbesserung und langlebige Fassadenfarben.' },
-  { icon: 'layers', title: 'Tapezieren', text: 'Von Raufaser bis Designtapete: glatt verklebt, Stoß auf Stoß, ohne Blasen.' },
-  { icon: 'brush', title: 'Lackierarbeiten', text: 'Türen, Fenster, Heizkörper und Geländer: frisch lackiert und wieder wie neu.' },
-  { icon: 'sparkles', title: 'Kreative Techniken', text: 'Lasuren, Kalk- und Spachteltechniken für Räume mit Charakter.' },
-  { icon: 'shield-check', title: 'Schimmel­sanierung', text: 'Ursache finden, fachgerecht entfernen, dauerhaft vorbeugen.' },
+  { icon: 'paint-roller', title: 'Innenanstrich', text: 'Ihre Wände können mehr als Weiß. Wir bringen Ihre Wunschfarbe an Wand und Decke, sauber abgeklebt, Möbel geschützt. Auch kurzfristig und während Sie drin wohnen.' },
+  { icon: 'house', title: 'Fassadenanstrich', text: 'Ihre Fassade ist die Visitenkarte der ganzen Straße. Wir reinigen, bessern aus und streichen mit langlebigen Fassadenfarben. Da schauen die Nachbarn zweimal hin.' },
+  { icon: 'layers', title: 'Tapezieren', text: 'Raufaser oder Designtapete? Hauptsache glatt. Bei uns sitzt jede Bahn Stoß auf Stoß, ganz ohne Blasen.' },
+  { icon: 'brush', title: 'Lackierarbeiten', text: 'Abgegriffen war gestern. Wir lackieren Türen, Fenster, Heizkörper und Geländer, bis sie wieder aussehen wie neu.' },
+  { icon: 'sparkles', title: 'Kreative Techniken', text: 'Lasuren, Kalk- und Spachteltechniken für alle, denen glatt und weiß zu brav ist. Räume mit Charakter statt Katalog.' },
+  { icon: 'shield-check', title: 'Schimmel­sanierung', text: 'Schimmel? Nicht mit uns. Wir finden die Ursache, entfernen ihn fachgerecht und beugen dauerhaft vor.' },
 ]
 
 const projects: GalleryItem[] = [
@@ -51,9 +51,9 @@ const projects: GalleryItem[] = [
 ]
 
 const values = [
-  { icon: 'clock', title: 'Pünktlich', text: 'Termine, auf die Sie sich verlassen können.' },
-  { icon: 'sparkles', title: 'Sauber', text: 'Abdecken, Abkleben, Aufräumen inklusive.' },
-  { icon: 'handshake', title: 'Persönlich', text: 'Ein fester Ansprechpartner, vom Angebot bis zur Abnahme.' },
+  { icon: 'clock', title: 'Pünktlich', text: 'Wenn wir einen Termin sagen, stehen wir auch vor der Tür.' },
+  { icon: 'sparkles', title: 'Sauber', text: 'Abdecken, abkleben, aufräumen. Ihr Staubsauger hat frei.' },
+  { icon: 'handshake', title: 'Persönlich', text: 'Ein Gesicht, eine Nummer: Ihr fester Ansprechpartner vom Angebot bis zur Abnahme.' },
 ]
 
 // Beispieltexte! Live nur echte Zitate mit Einwilligung, sonst Sektion entfernen (§6.8)
@@ -80,14 +80,14 @@ function focusForm() {
             <AppIcon name="award" size="sm" />
             Meisterbetrieb seit <span class="ph">[GRÜNDUNGSJAHR]</span>
           </span>
-          <h1 id="hero-title" class="t-display">Farbe mit <span class="brush">Liebe</span> zum Detail.</h1>
-          <p class="t-lead">Malerarbeiten, Fassaden und Tapezieren in <span class="ph">[ORT]</span> und Umgebung. Persönlich, sauber und pünktlich, vom Meister selbst.</p>
+          <h1 id="hero-title" class="t-display">Ihre Wände haben <span class="brush">Besseres</span> verdient.</h1>
+          <p class="t-lead">Malerarbeiten, Fassaden und Tapezieren in <span class="ph">[ORT]</span> und Umgebung, vom Meister selbst. Sie suchen die Farbe aus, wir erledigen den Rest: pünktlich, sauber, ohne Theater.</p>
           <div id="hero-ctas" class="hero__ctas">
-            <UiButton :href="links.tel" size="lg" icon="phone">Jetzt anrufen</UiButton>
+            <UiButton :href="links.tel" size="lg" icon="phone">Jetzt durchklingeln</UiButton>
             <UiButton href="#kontakt" variant="secondary" size="lg" @click="focusForm">Angebot anfragen</UiButton>
           </div>
           <!-- [MIT KUNDE BESTÄTIGEN]: nur live, wenn der Kunde beides zusagt (§8) -->
-          <p class="t-small t-muted hero__micro">Kostenlose Besichtigung vor Ort · Antwort innerhalb von 24 Stunden <span class="ph">[MIT KUNDE BESTÄTIGEN]</span></p>
+          <p class="t-small t-muted hero__micro">Besichtigung vor Ort kostet Sie nichts · Antwort binnen 24 Stunden <span class="ph">[MIT KUNDE BESTÄTIGEN]</span></p>
         </div>
         <div class="hero__media">
           <svg class="hero__blob" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M41 36c24-22 70-30 104-14 30 14 50 44 46 78-3 30-26 46-30 72-4 22-36 28-62 22-30-7-42-30-66-44C10 136 2 108 8 82c4-18 18-31 33-46z" /></svg>
@@ -120,8 +120,8 @@ function focusForm() {
       <div class="container">
         <div class="section-head">
           <p class="t-overline">Leistungen</p>
-          <h2 id="leistungen-title" class="t-h2">Was wir für Sie <span class="brush">streichen</span>, tapezieren und gestalten.</h2>
-          <p class="t-lead">Ob ein Zimmer oder das ganze Haus: Wir beraten Sie ehrlich, arbeiten sauber und hinterlassen alles so, wie wir es vorgefunden haben, nur schöner.</p>
+          <h2 id="leistungen-title" class="t-h2">Alles, was Farbe <span class="brush">verträgt</span>. Und Tapete auch.</h2>
+          <p class="t-lead">Ein Zimmer oder gleich das ganze Haus? Wir beraten ehrlich, arbeiten sauber und hinterlassen alles so, wie wir es vorgefunden haben. Nur eben deutlich schöner.</p>
           <p class="mt-4"><span class="ph-note">[LEISTUNGEN BESTÄTIGEN]: Liste vom Kunden freigeben lassen</span></p>
         </div>
 
@@ -134,7 +134,7 @@ function focusForm() {
         </ul>
 
         <p class="services-more">
-          <span>Ihre Leistung ist nicht dabei? <strong>Fragen Sie uns einfach.</strong></span>
+          <span>Ihr Wunsch fehlt in der Liste? <strong>Fragen kostet nichts.</strong></span>
           <a class="btn-ghost" href="#kontakt">Zum Kontakt <AppIcon name="arrow-right" size="sm" /></a>
         </p>
       </div>
@@ -145,8 +145,8 @@ function focusForm() {
       <div class="container">
         <div class="section-head">
           <p class="t-overline">Referenzen</p>
-          <h2 id="referenzen-title" class="t-h2">Vorher. <span class="brush">Nachher.</span> Überzeugen Sie sich selbst.</h2>
-          <p class="t-lead">Ein paar unserer Projekte aus <span class="ph">[ORT]</span> und Umgebung.</p>
+          <h2 id="referenzen-title" class="t-h2">Vorher. <span class="brush">Nachher.</span> Noch Fragen?</h2>
+          <p class="t-lead">Ein paar Lieblingsprojekte aus <span class="ph">[ORT]</span> und Umgebung. Ziehen Sie ruhig am Regler, das macht süchtig.</p>
         </div>
 
         <figure class="ba-wrap section-body">
@@ -169,9 +169,9 @@ function focusForm() {
         </div>
         <div class="about__text">
           <p class="t-overline">Über uns</p>
-          <h2 id="ueber-title" class="t-h2">Ein Familienbetrieb aus <span class="brush"><span class="ph">[ORT]</span></span>.</h2>
-          <p>Hinter Maler Vogel stehen <span class="ph">[VORNAME NACHNAME]</span> und ein kleines, eingespieltes Team. Seit <span class="ph">[GRÜNDUNGSJAHR]</span> verschönern wir Wohnungen, Häuser und Geschäftsräume in <span class="ph">[ORT]</span> und Umgebung, <span class="ph">[GENERATION, z. B. „in zweiter Generation“]</span>.</p>
-          <p>Uns ist wichtig, dass Sie sich keine Sorgen machen müssen: Wir kommen pünktlich, schützen Ihre Möbel und Böden und räumen jeden Abend auf. Und wenn wir gehen, bleibt nur die neue Farbe zurück.</p>
+          <h2 id="ueber-title" class="t-h2">Ein Familienbetrieb aus <span class="brush"><span class="ph">[ORT]</span></span>. Mit Farbe im Blut.</h2>
+          <p>Hinter Maler Vogel stecken <span class="ph">[VORNAME NACHNAME]</span> und ein kleines Team, das sich blind versteht. Seit <span class="ph">[GRÜNDUNGSJAHR]</span> bringen wir Farbe in Wohnungen, Häuser und Geschäftsräume in <span class="ph">[ORT]</span> und Umgebung, <span class="ph">[GENERATION, z. B. „in zweiter Generation“]</span>.</p>
+          <p>Ihr Job: sich aufs Ergebnis freuen. Unser Job: alles andere. Wir kommen pünktlich, schützen Möbel und Böden und räumen jeden Abend auf. Und wenn wir gehen, bleibt nur eins zurück: die neue Farbe.</p>
           <ul class="values">
             <li v-for="value in values" :key="value.title">
               <AppIcon :name="value.icon" /><strong>{{ value.title }}</strong><span>{{ value.text }}</span>
@@ -190,16 +190,16 @@ function focusForm() {
       <div class="container">
         <div class="section-head">
           <p class="t-overline">So arbeiten wir</p>
-          <h2 id="ablauf-title" class="t-h2">In vier Schritten zur <span class="brush">frischen</span> Wand.</h2>
+          <h2 id="ablauf-title" class="t-h2">Vier Schritte bis zur <span class="brush">frischen</span> Wand. Ganz ohne Papierkram-Marathon.</h2>
         </div>
         <ol class="steps section-body">
-          <li class="step"><span class="step__num" aria-hidden="true">1</span><div><h3 class="t-h3">Anfrage</h3><p>Rufen Sie an, schreiben Sie uns per WhatsApp oder nutzen Sie das Formular.</p></div></li>
-          <li class="step"><span class="step__num" aria-hidden="true">2</span><div><h3 class="t-h3">Besichtigung</h3><p>Wir kommen kostenlos vorbei, schauen uns alles an und beraten Sie zu Farben und Materialien. <span class="ph">[MIT KUNDE BESTÄTIGEN]</span></p></div></li>
-          <li class="step"><span class="step__num" aria-hidden="true">3</span><div><h3 class="t-h3">Festpreis-Angebot</h3><p>Sie erhalten ein klares, schriftliches Angebot ohne versteckte Kosten. <span class="ph">[MIT KUNDE BESTÄTIGEN]</span></p></div></li>
-          <li class="step"><span class="step__num" aria-hidden="true">4</span><div><h3 class="t-h3">Ausführung &amp; Abnahme</h3><p>Wir arbeiten sauber und termingerecht und übergeben alles gemeinsam mit Ihnen.</p></div></li>
+          <li class="step"><span class="step__num" aria-hidden="true">1</span><div><h3 class="t-h3">Hallo sagen</h3><p>Anrufen, WhatsApp oder Formular: Sie wählen den Kanal, wir hören zu.</p></div></li>
+          <li class="step"><span class="step__num" aria-hidden="true">2</span><div><h3 class="t-h3">Vorbeischauen</h3><p>Wir kommen kostenlos vorbei, schauen uns alles genau an und reden Klartext über Farben und Materialien. <span class="ph">[MIT KUNDE BESTÄTIGEN]</span></p></div></li>
+          <li class="step"><span class="step__num" aria-hidden="true">3</span><div><h3 class="t-h3">Festpreis-Angebot</h3><p>Schwarz auf weiß: ein klares, schriftliches Angebot. Ohne versteckte Kosten, ohne böse Überraschung. <span class="ph">[MIT KUNDE BESTÄTIGEN]</span></p></div></li>
+          <li class="step"><span class="step__num" aria-hidden="true">4</span><div><h3 class="t-h3">Streichen &amp; staunen</h3><p>Wir arbeiten sauber und termingerecht. Bei der gemeinsamen Abnahme dürfen Sie dann ausgiebig staunen.</p></div></li>
         </ol>
         <div class="steps-cta">
-          <UiButton href="#kontakt" size="lg" @click="focusForm">Jetzt Besichtigung vereinbaren</UiButton>
+          <UiButton href="#kontakt" size="lg" @click="focusForm">Besichtigungstermin sichern</UiButton>
         </div>
       </div>
     </section>
@@ -210,7 +210,7 @@ function focusForm() {
       <div class="container">
         <div class="section-head section-head--center">
           <p class="t-overline">Kundenstimmen</p>
-          <h2 id="stimmen-title" class="t-h2">Das sagen unsere <span class="brush">Kunden</span>.</h2>
+          <h2 id="stimmen-title" class="t-h2">Fragen Sie nicht uns. Fragen Sie unsere <span class="brush">Kunden</span>.</h2>
           <p class="rating">
             <span class="stars" role="img" aria-label="[X,X] von 5 Sternen">
               <AppIcon v-for="n in 5" :key="n" name="star" />
@@ -235,8 +235,8 @@ function focusForm() {
         <div class="contact__grid">
           <div class="contact__info">
             <p class="t-overline">Kontakt</p>
-            <h2 id="kontakt-title" class="t-h2">Was haben Sie <span class="brush">vor</span>?</h2>
-            <p class="t-lead">Erzählen Sie uns kurz von Ihrem Projekt. Wir melden uns schnell zurück und vereinbaren gern einen Termin vor Ort.</p>
+            <h2 id="kontakt-title" class="t-h2">Na, was haben Sie <span class="brush">vor</span>?</h2>
+            <p class="t-lead">Ein Satz reicht für den Anfang. Erzählen Sie uns von Ihrem Projekt, wir melden uns schnell zurück und kommen gern auf einen Termin vor Ort vorbei.</p>
 
             <dl class="contact-list">
               <div>
@@ -266,7 +266,7 @@ function focusForm() {
             </dl>
 
             <div class="contact__buttons">
-              <UiButton :href="links.tel" variant="on-dark" size="lg" icon="phone">Jetzt anrufen</UiButton>
+              <UiButton :href="links.tel" variant="on-dark" size="lg" icon="phone">Jetzt durchklingeln</UiButton>
               <UiButton :href="links.whatsapp" variant="whatsapp" size="lg" icon="message" target="_blank" rel="noopener">WhatsApp</UiButton>
             </div>
           </div>

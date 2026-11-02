@@ -62,7 +62,7 @@ function onTouchend(e: TouchEvent) {
 
 <template>
   <div class="gallery">
-    <h3 class="t-h3">Weitere Projekte</h3>
+    <h3 class="t-h3">Noch mehr frische Farbe</h3>
     <ul class="gallery__grid">
       <li v-for="(item, i) in items" :key="item.title" class="gallery__item">
         <button class="gallery__btn" type="button" @click="open(i, $event)">

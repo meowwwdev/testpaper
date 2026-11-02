@@ -10,7 +10,7 @@ onMounted(() => { year.value = new Date().getFullYear() })
       <div class="footer__grid">
         <div>
           <SiteLogo light />
-          <p>Ihr Malerbetrieb in <span class="ph">[ORT]</span>. Persönlich. Sauber. Pünktlich.</p>
+          <p>Ihr Malerbetrieb in <span class="ph">[ORT]</span>. Persönlich. Sauber. Pünktlich. Und ein bisschen frech.</p>
         </div>
         <div>
           <p class="footer__title">Kontakt</p>
