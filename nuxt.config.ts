@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 // Lokal ohne Präfix testen: NUXT_APP_BASE_URL=/ npm run generate
 const baseURL = process.env.NUXT_APP_BASE_URL || '/testpaper/'
 
+const themeScript = `(function(d){d.classList.add('js');var t;try{t=localStorage.getItem('mv-theme')}catch(e){}`
+  + `if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.dataset.theme=t})(document.documentElement)`
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-11-01',
   devtools: { enabled: false },
@@ -33,7 +36,9 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: `${baseURL}assets/logo-signet.svg` }],
       // Progressive Enhancement: CSS-Fallbacks greifen ohne JS, `.js` schaltet die interaktiven Varianten frei.
-      script: [{ innerHTML: "document.documentElement.classList.add('js')", tagPosition: 'head' }],
+      // Theme vor dem ersten Rendern setzen (kein Aufblitzen): gespeicherte Wahl, sonst Systemeinstellung.
+      // Schlüssel und Logik spiegeln app/composables/useColorTheme.ts.
+      script: [{ innerHTML: themeScript, tagPosition: 'head' }],
     },
   },
 })

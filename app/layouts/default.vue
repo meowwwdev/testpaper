@@ -7,6 +7,7 @@ useHead({ bodyAttrs: { class: computed(() => hasActionBar.value ? 'has-action-ba
 
 <template>
   <IconSprite />
+  <PlaceholderSprite />
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
   <SiteHeader />
   <slot />

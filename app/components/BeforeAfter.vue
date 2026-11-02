@@ -24,11 +24,11 @@ onBeforeUnmount(() => window.removeEventListener('pointerup', stopDragging))
   <div class="ba" :class="{ 'is-dragging': dragging }" :style="{ '--pos': `${pos}%` }">
     <div class="ba__pane ba__pane--before">
       <span class="ba__label">Vorher</span>
-      <PhotoPlaceholder class="ba-ph--before"><slot name="before">Vorher-Foto folgt</slot></PhotoPlaceholder>
+      <PhotoPlaceholder motif="room-before"><slot name="before">Vorher-Foto folgt</slot></PhotoPlaceholder>
     </div>
     <div class="ba__pane ba__pane--after">
       <span class="ba__label">Nachher</span>
-      <PhotoPlaceholder class="ba-ph--after"><slot name="after">Nachher-Foto folgt</slot></PhotoPlaceholder>
+      <PhotoPlaceholder motif="room"><slot name="after">Nachher-Foto folgt</slot></PhotoPlaceholder>
     </div>
     <input
       v-model.number="pos"

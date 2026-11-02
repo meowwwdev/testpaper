@@ -1,6 +1,7 @@
 <script setup lang="ts">
-// Header (§6.1): Schatten ab 8 px Scroll, Scroll-Spy, mobiles Menü mit Focus-Trap, Esc und Body-Scroll-Lock
+// Header (§6.1): Schatten ab 8 px Scroll, Scroll-Spy, mobiles Menü mit Focus-Trap, Esc und Body-Scroll-Lock, Theme-Umschalter
 const route = useRoute()
+const { theme, toggle: toggleTheme, init: initTheme } = useColorTheme()
 
 const isScrolled = ref(false)
 const menuOpen = ref(false)
@@ -8,7 +9,11 @@ const activeId = ref<string | null>(null)
 const toggle = useTemplateRef<HTMLButtonElement>('toggle')
 const mobileNav = useTemplateRef<HTMLElement>('mobileNav')
 
-useHead({ bodyAttrs: { class: computed(() => menuOpen.value ? 'nav-open' : '') } })
+useHead({
+  bodyAttrs: { class: computed(() => menuOpen.value ? 'nav-open' : '') },
+  // Browserleiste an den Seitenhintergrund (--color-kalk) anpassen
+  meta: [{ name: 'theme-color', content: computed(() => theme.value === 'dark' ? '#141B1F' : '#FAF7F2') }],
+})
 
 function setOpen(open: boolean) {
   menuOpen.value = open
@@ -35,6 +40,7 @@ function onScroll() {
 }
 
 let spy: IntersectionObserver | undefined
+let stopTheme: (() => void) | undefined
 let desktop: MediaQueryList | undefined
 const onDesktopChange = (mq: MediaQueryListEvent) => { if (mq.matches) setOpen(false) }
 
@@ -60,6 +66,7 @@ onMounted(() => {
   desktop.addEventListener('change', onDesktopChange)
   onScroll()
   observeSections()
+  stopTheme = initTheme()
 })
 
 watch(() => route.path, () => nextTick(observeSections))
@@ -69,6 +76,7 @@ onBeforeUnmount(() => {
   document.removeEventListener('keydown', onKeydown)
   desktop?.removeEventListener('change', onDesktopChange)
   spy?.disconnect()
+  stopTheme?.()
 })
 </script>
 
@@ -89,12 +97,23 @@ onBeforeUnmount(() => {
       </UiButton>
 
       <div class="site-header__actions">
-        <a class="icon-btn icon-btn--call" :href="links.tel" aria-label="Maler Vogel anrufen: [TELEFON]">
+        <button
+          class="icon-btn theme-toggle"
+          type="button"
+          :aria-pressed="theme === 'dark'"
+          aria-label="Dunkles Design"
+          :title="theme === 'dark' ? 'Helles Design aktivieren' : 'Dunkles Design aktivieren'"
+          @click="toggleTheme"
+        >
+          <AppIcon name="moon" class="theme-toggle__moon" />
+          <AppIcon name="sun" class="theme-toggle__sun" />
+        </button>
+        <a class="icon-btn icon-btn--call site-header__mobile" :href="links.tel" aria-label="Maler Vogel anrufen: [TELEFON]">
           <AppIcon name="phone" />
         </a>
         <button
           ref="toggle"
-          class="icon-btn"
+          class="icon-btn site-header__mobile"
           type="button"
           :aria-expanded="menuOpen"
           aria-controls="mobile-nav"

@@ -42,12 +42,12 @@ const services = [
 ]
 
 const projects: GalleryItem[] = [
-  { title: 'Fassadenanstrich · Einfamilienhaus', place: '[ORT]' },
-  { title: 'Innenanstrich · Kinderzimmer', place: '[ORT]' },
-  { title: 'Tapezieren · Schlafzimmer', place: '[ORT]' },
-  { title: 'Lackierarbeiten · Holztreppe', place: '[ORT]' },
-  { title: 'Kalkputz-Technik · Wohnküche', place: '[ORT]' },
-  { title: 'Treppenhaus · Mehrfamilienhaus', place: '[ORT]' },
+  { title: 'Fassadenanstrich · Einfamilienhaus', place: '[ORT]', motif: 'facade' },
+  { title: 'Innenanstrich · Kinderzimmer', place: '[ORT]', motif: 'room' },
+  { title: 'Tapezieren · Schlafzimmer', place: '[ORT]', motif: 'wallpaper' },
+  { title: 'Lackierarbeiten · Holztreppe', place: '[ORT]', motif: 'stairs' },
+  { title: 'Kalkputz-Technik · Wohnküche', place: '[ORT]', motif: 'texture' },
+  { title: 'Treppenhaus · Mehrfamilienhaus', place: '[ORT]', motif: 'apartment' },
 ]
 
 const values = [
@@ -93,6 +93,7 @@ function focusForm() {
           <svg class="hero__blob" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M41 36c24-22 70-30 104-14 30 14 50 44 46 78-3 30-26 46-30 72-4 22-36 28-62 22-30-7-42-30-66-44C10 136 2 108 8 82c4-18 18-31 33-46z" /></svg>
           <div class="hero__img">
             <PhotoPlaceholder
+              motif="facade"
               label="Platzhalter für das Hero-Foto: Team vor frisch gestrichener Fassade"
               hint="Hero-Foto: Team vor frisch gestrichener Fassade, Motiv rechts"
             />
@@ -162,7 +163,7 @@ function focusForm() {
       <div class="container about__grid">
         <div class="about__media">
           <div class="about__img">
-            <PhotoPlaceholder label="Platzhalter für das Porträt des Inhabers" hint="Porträt Inhaber/Team im Arbeitsoutfit, 4:5" />
+            <PhotoPlaceholder motif="portrait" label="Platzhalter für das Porträt des Inhabers" hint="Porträt Inhaber/Team im Arbeitsoutfit, 4:5" />
           </div>
           <p class="about__badge">Meister&shy;betrieb seit <span class="ph">[GRÜNDUNGSJAHR]</span></p>
         </div>

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 // Galerie + Lightbox (§6.5b) auf Basis des nativen <dialog>
+import type { PlaceholderMotif } from '~/components/PhotoPlaceholder.vue'
+
 export interface GalleryItem {
   /** Leistung · Objekt, z. B. „Fassadenanstrich · Einfamilienhaus“ */
   title: string
   /** Ort (Kundendaten-Platzhalter) */
   place: string
+  /** Platzhalter-Motiv, bis das echte Foto vorliegt */
+  motif?: PlaceholderMotif
 }
 
 const props = defineProps<{ items: GalleryItem[] }>()
@@ -62,7 +66,7 @@ function onTouchend(e: TouchEvent) {
     <ul class="gallery__grid">
       <li v-for="(item, i) in items" :key="item.title" class="gallery__item">
         <button class="gallery__btn" type="button" @click="open(i, $event)">
-          <PhotoPlaceholder as="span" icon-size="lg" />
+          <PhotoPlaceholder as="span" :motif="item.motif" />
           <span class="gallery__overlay">{{ captionOf(item) }}</span>
           <span class="sr-only">Bild vergrößern</span>
         </button>
@@ -85,7 +89,7 @@ function onTouchend(e: TouchEvent) {
           <AppIcon name="x" />
         </button>
         <div class="lightbox__stage">
-          <PhotoPlaceholder />
+          <PhotoPlaceholder :motif="items[current]?.motif" />
         </div>
         <p class="lightbox__caption">{{ lightboxCaption }}</p>
         <div class="lightbox__nav">
